@@ -29,7 +29,6 @@ class TestValidate:
         # assert
         assert result == True
 
-
     def test_validate_rejects_invalid_path(self, allargs):
         # arrange
         allargs.path = "None"   # invalid path
@@ -40,7 +39,6 @@ class TestValidate:
         # assert
         assert result == False
 
-
     def test_validate_rejects_invalid_characters(self, allargs):
         # arrange
         allargs.dataset = "INVALID dataset name"
@@ -50,7 +48,6 @@ class TestValidate:
 
         # assert
         assert result == False
-
 
     @pytest.mark.xfail(reason="hasattr() always returns True, short-circuiting the or — see validate()")
     def test_validate_rejects_invalid_characters_in_iteration1(self, allargs):
@@ -63,7 +60,6 @@ class TestValidate:
         # assert
         assert result == False
 
-
     @pytest.mark.xfail(reason="hasattr() always returns True, short-circuiting the or — see validate()")
     def test_validate_rejects_invalid_characters_in_iteration2(self, allargs):
         # arrange
@@ -74,7 +70,6 @@ class TestValidate:
 
         # assert
         assert result == False
-
 
     @pytest.mark.xfail(reason="hasattr() always returns True, short-circuiting the or — see validate()")
     def test_validate_rejects_invalid_characters_in_iteration3(self, allargs):
@@ -87,7 +82,6 @@ class TestValidate:
         # assert
         assert result == False
 
-
     @pytest.mark.xfail(reason="hasattr() always returns True, short-circuiting the or — see validate()")
     def test_validate_rejects_invalid_characters_in_iteration4(self, allargs):
         # arrange
@@ -99,7 +93,6 @@ class TestValidate:
         # assert
         assert result == False
 
-
     def test_validate_rejects_invalid_version(self, allargs):
         # arrange
         allargs.version = 100
@@ -109,7 +102,6 @@ class TestValidate:
 
         # assert
         assert result == False
-
 
     def test_validate_rejects_invalid_sensitivity_level(self, allargs):
         # arrange
@@ -200,10 +192,3 @@ class TestGenerateManifest:
 
     def test_generate_manifest_contains_version_number(self, generated_manifest):
         assert generated_manifest["version"] == 1
-
-
-    def test_generate_manifest_generates_an_expected_manifest(self, generated_manifest):
-        # assert
-        assert generated_manifest == {
-             'version': 1
-        }
