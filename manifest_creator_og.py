@@ -61,7 +61,33 @@ def isotime():
         return isonow.isoformat()
 
 # MAIN MANIFEST GENERATION FUNCTION
-def GenerateManifest(path, sourceName, description, version, dataset, sensitivity,iterationl1, iterationl2, iterationl3, iterationl4,schemaVersion):
+def GenerateManifest(path, sourceName, description, version, dataset, sensitivity,iterationl1, iterationl2, iterationl3, iterationl4,schemaVersion, output_path='folder.mani'):
+    """
+        Generates a folder.mani JSON manifest file describing a dataset.
+        Output shape::
+            {
+                "files": [
+                    {
+                        "relativePath:": "...",  # NOTE: trailing colons in keys are intentional (see TODO)
+                        "name:": "...",
+                        "md5sum:": "...",
+                        "sizeBytes:": 123
+                    }
+                ],
+                "schemaVersion": 1,
+                "sourceName": "...",
+                "description": "...",
+                "manifestCreated": "2024-01-01T00:00:00+00:00",
+                "dataset": "...",
+                "version": 1,
+                "sensitivity": "low|medium|high",
+                "iterationL1": "",
+                "iterationL2": "",
+                "iterationL3": "",
+                "iterationL4": "",
+                "fullSizeMegabytes": "0.000001"  # NOTE: string, not float
+            }
+        """
 
     # TODO: assigned and overwritten
     listFilesList = []
@@ -99,8 +125,7 @@ def GenerateManifest(path, sourceName, description, version, dataset, sensitivit
         'fullSizeMegabytes': totalSize
     })
 
-    # TODO - code smell: 'folder.mani' will always be written to the current working dir
-    with open('folder.mani', 'w') as maniFile:
+    with open(output_path, 'w') as maniFile:
         json.dump(maniData, maniFile)
 
 def validate(allargs):
