@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "aws-manifest-creator"
+version = "0.1.0"
+description = ""
+authors = ["Elinor <46898565+elthorne@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
