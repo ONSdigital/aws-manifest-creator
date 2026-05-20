@@ -30,7 +30,10 @@ class S3DataSourceInterface(DataSourceInterface):
         self.checksum_interface = checksum_interface or ETagChecksumInterface()
 
     def list_files(self, location: str) -> list[DataSourceFile]:
-        bucket, prefix = location.rsplit("/", 1)
+        parts = location.split("/", 1)
+        bucket = parts[0]
+        prefix = parts[1] if len(parts) > 1 else ""
+
         response = self.s3.list_objects_v2(Bucket=bucket, Prefix=prefix)
 
         return [
