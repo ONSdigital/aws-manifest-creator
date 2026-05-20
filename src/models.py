@@ -13,10 +13,10 @@ class DataSourceFile:
 
 
 @dataclass
-class ManifestConfig:
+class ManifestMetadata:
     """
     All metadata required to generate a manifest.
-    Populated by a ManifestConfig provider implementation
+    Populated by a MetadataFetcherInterface provider implementation
     """
     path: str
     source_name: str

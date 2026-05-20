@@ -1,15 +1,15 @@
 import pytest
 
-from src.models import ManifestConfig
+from src.models import ManifestMetadata
 
 
 @pytest.fixture
-def valid_config(tmp_path) -> ManifestConfig:
+def valid_config(tmp_path) -> ManifestMetadata:
     """
-    A valid ManifestConfig pointing at a real temp directory.
+    A valid Metadata dataclass object pointing at a real temp directory.
     Override individual fields in tests to exercise specific behaviours.
     """
-    return ManifestConfig(
+    return ManifestMetadata(
         path=str(tmp_path),
         source_name="onz_tdz",
         description="Test dataset",

@@ -1,7 +1,7 @@
 import datetime
 
 from dataclasses import dataclass
-from src.models import ManifestConfig, DataSourceFile
+from src.models import ManifestMetadata, DataSourceFile
 
 
 SCHEMA_VERSION = 2
@@ -63,7 +63,7 @@ class ManifestData:
         }
 
 
-def generate_manifest(config: ManifestConfig, files: list[DataSourceFile]) -> ManifestData:
+def generate_manifest(config: ManifestMetadata, files: list[DataSourceFile]) -> ManifestData:
     """
     Generates a manifest dict from a config and a list of DataSourceFiles.
     Pure function — no I/O. Source and destination are handled by providers.

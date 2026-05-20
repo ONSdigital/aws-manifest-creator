@@ -10,7 +10,7 @@ Object Created event
         ▼
   lambda_handler
         │
-        ├── ManifestConfigProvider       → resolves dataset metadata
+        ├── MetadataFetcherInterface     → gets dataset metadata
         ├── DataSourceInterface          → lists files and checksums
         ├── generate_manifest()          → pure function, no I/O
         ├── ManifestDestinationInterface → decides where .mani goes
