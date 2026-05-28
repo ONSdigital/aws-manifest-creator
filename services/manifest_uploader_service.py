@@ -4,10 +4,12 @@ import boto3
 
 from abc import abstractmethod, ABC
 
+from dataclass.generate_manifest import ManifestData
+
 
 class ManifestUploaderService(ABC):
     @abstractmethod
-    def save(self, manifest: dict, destination: str):
+    def save(self, manifest: ManifestData, destination: str):
         """
         Saves the manifest dict to the given destination.
         Destination is intentionally a plain string — each implementation
