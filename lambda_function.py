@@ -44,10 +44,10 @@ def _extract_payload(event):
 
 
 def _extract_body(body):
+    if isinstance(body, str):
+        body = json.loads(body)
     if body is None:
         return {}
-    if isinstance(body, str):
-        return json.loads(body)
     if isinstance(body, dict):
         return body
     raise TypeError(f"Unsupported body type {type(body)}")
